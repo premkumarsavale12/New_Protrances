@@ -200,7 +200,18 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | VideoBlock
+    | Right
+    | MediBlock
+    | Conten
+    | Logo
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -781,6 +792,112 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "videoBlock".
+ */
+export interface VideoBlock {
+  Video: number | Media;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  Paragraph?:
+    | {
+        Point?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'videoBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "right".
+ */
+export interface Right {
+  item?:
+    | {
+        Images: number | Media;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'right';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mediBlock".
+ */
+export interface MediBlock {
+  image: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "conten".
+ */
+export interface Conten {
+  cards?:
+    | {
+        title: string;
+        Paragraph: string;
+        AuthorName?: string | null;
+        logo: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'conten';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "logo".
+ */
+export interface Logo {
+  heading?: string | null;
+  Paragraph?: string | null;
+  Logo?:
+    | {
+        Images: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logo';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1087,6 +1204,11 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        videoBlock?: T | VideoBlockSelect<T>;
+        right?: T | RightSelect<T>;
+        mediBlock?: T | MediBlockSelect<T>;
+        conten?: T | ContenSelect<T>;
+        logo?: T | LogoSelect<T>;
       };
   meta?:
     | T
@@ -1183,6 +1305,79 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "videoBlock_select".
+ */
+export interface VideoBlockSelect<T extends boolean = true> {
+  Video?: T;
+  richText?: T;
+  Paragraph?:
+    | T
+    | {
+        Point?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "right_select".
+ */
+export interface RightSelect<T extends boolean = true> {
+  item?:
+    | T
+    | {
+        Images?: T;
+        richText?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mediBlock_select".
+ */
+export interface MediBlockSelect<T extends boolean = true> {
+  image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "conten_select".
+ */
+export interface ContenSelect<T extends boolean = true> {
+  cards?:
+    | T
+    | {
+        title?: T;
+        Paragraph?: T;
+        AuthorName?: T;
+        logo?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "logo_select".
+ */
+export interface LogoSelect<T extends boolean = true> {
+  heading?: T;
+  Paragraph?: T;
+  Logo?:
+    | T
+    | {
+        Images?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
