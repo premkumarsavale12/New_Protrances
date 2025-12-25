@@ -29,7 +29,7 @@ export const VideoBlock: React.FC<VideoBlockProps> = ({ Video, richText, Paragra
     return (
 
         <>
-            <div className="relative video-wrapper -mt-[98px]">
+            <div className="relative video-wrapper -mt-[110px]">
                 <video
                     autoPlay
                     loop
@@ -48,7 +48,7 @@ export const VideoBlock: React.FC<VideoBlockProps> = ({ Video, richText, Paragra
                 <div className="absolute inset-0 flex items-center justify-center text-white p-4 mt-[230px]">
                     <ul className="list-disc pl-5 space-y-4 text-white" >
                         {Paragraph?.map((item, index) => (
-                             <li key={index} style={{fontSize:'20px'}}>   <b> {item.Point}    </b>  </li>
+                            <li key={index} style={{ fontSize: '20px' }}>   <b> {item.Point}    </b>  </li>
                         ))}
                     </ul>
                 </div>

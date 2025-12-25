@@ -12,10 +12,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   const defaultNavItems = [
     { link: { label: 'Home', url: '/' } },
-    { link: { label: 'About', url: '/about' } },
-    { link: { label: 'Contact', url: '/contact' } },
-    { link: { label: 'Demo', url: '/demo' } },
+    { link: { label: 'Services', url: '/about' } },
     { link: { label: 'Blog', url: '/blog' } },
+    { link: { label: 'News', url: '/news' } },
+    { link: { label: 'About Me', url: '/about' } },
+    { link: { label: 'Contact', url: '/contact' } },
   ]
 
   const itemsToShow = navItems.length > 0 ? navItems : defaultNavItems

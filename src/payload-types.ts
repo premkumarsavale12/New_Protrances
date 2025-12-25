@@ -157,8 +157,8 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title?: string | null;
-  hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+  hero?: {
+    type?: ('none' | 'highImpact' | 'mediumImpact' | 'lowImpact') | null;
     richText?: {
       root: {
         type: string;
@@ -865,6 +865,27 @@ export interface Right {
  */
 export interface MediBlock {
   image: number | Media;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  Paragraph?:
+    | {
+        Point?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediBlock';
@@ -1576,6 +1597,13 @@ export interface RightSelect<T extends boolean = true> {
  */
 export interface MediBlockSelect<T extends boolean = true> {
   image?: T;
+  richText?: T;
+  Paragraph?:
+    | T
+    | {
+        Point?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
