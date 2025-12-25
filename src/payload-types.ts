@@ -72,7 +72,7 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
-    redirects: Redirect;
+    redirects: Redirect1;
     forms: Form;
     'form-submissions': FormSubmission;
     search: Search;
@@ -218,6 +218,7 @@ export interface Page {
     | Down
     | Partner
     | Head
+    | Redirect
   )[];
   meta?: {
     title?: string | null;
@@ -1094,9 +1095,35 @@ export interface Head {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "redirects".
+ * via the `definition` "redirect".
  */
 export interface Redirect {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  Paragraph?: string | null;
+  Button?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'redirect';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects".
+ */
+export interface Redirect1 {
   id: number;
   /**
    * You will need to rebuild the website when changing this field.
@@ -1304,7 +1331,7 @@ export interface PayloadLockedDocument {
       } | null)
     | ({
         relationTo: 'redirects';
-        value: number | Redirect;
+        value: number | Redirect1;
       } | null)
     | ({
         relationTo: 'forms';
@@ -1412,6 +1439,7 @@ export interface PagesSelect<T extends boolean = true> {
         down?: T | DownSelect<T>;
         partner?: T | PartnerSelect<T>;
         head?: T | HeadSelect<T>;
+        redirect?: T | RedirectSelect<T>;
       };
   meta?:
     | T
@@ -1723,6 +1751,17 @@ export interface HeadSelect<T extends boolean = true> {
         url?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirect_select".
+ */
+export interface RedirectSelect<T extends boolean = true> {
+  richText?: T;
+  Paragraph?: T;
+  Button?: T;
   id?: T;
   blockName?: T;
 }
