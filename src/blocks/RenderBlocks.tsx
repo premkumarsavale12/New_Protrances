@@ -15,6 +15,7 @@ import { FAQ } from '@/blocks/FAQ/Component'
 import { Logo } from '@/blocks/Logo/Component'
 import { Number } from '@/blocks/Number/Component'
 import { Slider } from '@/blocks/Slider/Component'
+import { References } from '@/blocks/Reference/Component'
 
 
 const blockComponents = {
@@ -30,7 +31,8 @@ const blockComponents = {
   faq: FAQ,
   logo: Logo,
   number: Number,
-  slider: Slider
+  slider: Slider,
+  reference: References
 }
 
 export const RenderBlocks: React.FC<{
