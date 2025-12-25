@@ -22,6 +22,9 @@ import { Slider } from '../../blocks/Slider/config'
 import { Reference } from '../../blocks/Reference/config'
 import { Down } from '../../blocks/Down/config'
 import { Partner } from '../../blocks/Partner/config'
+import { FAQ } from '../../blocks/FAQ/config'
+import { Head } from '../../blocks/Head/config'
+import { Redirect } from '../../blocks/Redirect/config'
 
 
 import {
@@ -69,7 +72,7 @@ export const Pages: CollectionConfig<'pages'> = {
     {
       name: 'title',
       type: 'text',
-      required: true,
+      // required: true,
     },
     {
       type: 'tabs',
@@ -83,7 +86,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, Down, Partner],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, FAQ, Down, Partner, Head, Redirect],
               required: true,
               admin: {
                 initCollapsed: true,
