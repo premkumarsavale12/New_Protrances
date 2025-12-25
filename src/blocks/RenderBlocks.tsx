@@ -16,6 +16,8 @@ import { Logo } from '@/blocks/Logo/Component'
 import { Number } from '@/blocks/Number/Component'
 import { Slider } from '@/blocks/Slider/Component'
 import { References } from '@/blocks/Reference/Component'
+import { Down } from '@/blocks/Down/Component'
+import { Partner } from '@/blocks/Partner/Component'
 
 
 const blockComponents = {
@@ -32,7 +34,9 @@ const blockComponents = {
   logo: Logo,
   number: Number,
   slider: Slider,
-  reference: References
+  reference: References,
+  down: Down,
+  partner: Partner
 }
 
 export const RenderBlocks: React.FC<{

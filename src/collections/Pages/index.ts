@@ -20,6 +20,8 @@ import { Logo } from '../../blocks/Logo/config'
 import { Number } from '../../blocks/Number/config'
 import { Slider } from '../../blocks/Slider/config'
 import { Reference } from '../../blocks/Reference/config'
+import { Down } from '../../blocks/Down/config'
+import { Partner } from '../../blocks/Partner/config'
 
 
 import {
@@ -81,7 +83,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, Down, Partner],
               required: true,
               admin: {
                 initCollapsed: true,
