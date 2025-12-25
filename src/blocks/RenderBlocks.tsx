@@ -13,6 +13,9 @@ import { MediBlock } from '@/blocks/MediBlock/Component'
 import { Conten } from '@/blocks/Conten/Component'
 import { FAQ } from '@/blocks/FAQ/Component'
 import { Logo } from '@/blocks/Logo/Component'
+import { Number } from '@/blocks/Number/Component'
+import { Slider } from '@/blocks/Slider/Component'
+
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -25,7 +28,9 @@ const blockComponents = {
   mediBlock: MediBlock,
   conten: Conten,
   faq: FAQ,
-  logo: Logo
+  logo: Logo,
+  number: Number,
+  slider: Slider
 }
 
 export const RenderBlocks: React.FC<{
