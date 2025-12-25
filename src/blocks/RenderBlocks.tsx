@@ -15,6 +15,11 @@ import { FAQ } from '@/blocks/FAQ/Component'
 import { Logo } from '@/blocks/Logo/Component'
 import { Number } from '@/blocks/Number/Component'
 import { Slider } from '@/blocks/Slider/Component'
+import { References } from '@/blocks/Reference/Component'
+import { Down } from '@/blocks/Down/Component'
+import { Partner } from '@/blocks/Partner/Component'
+import { Head } from '@/blocks/Head/Component'
+import { Redirect } from '@/blocks/Redirect/Component'
 
 
 const blockComponents = {
@@ -30,7 +35,12 @@ const blockComponents = {
   faq: FAQ,
   logo: Logo,
   number: Number,
-  slider: Slider
+  slider: Slider,
+  reference: References,
+  down: Down,
+  partner: Partner,
+  head: Head,
+  redirect: Redirect
 }
 
 export const RenderBlocks: React.FC<{
@@ -52,7 +62,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <div className="my-16" key={index}>
-                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
+
                   <Block {...block} disableInnerContainer />
                 </div>
               )
