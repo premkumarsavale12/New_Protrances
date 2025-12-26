@@ -26,9 +26,9 @@ export const Map: React.FC<MapProps> = ({ richText, mapEmbed }) => {
 
 
                 {mapEmbed && (
-                    <div className="mt-6 w-full items-center overflow-hidden rounded">
+                    <div className="mt-6   items-center overflow-hidden rounded  ml-[500px]  w-full" >
                         <div
-                            className=" w-full h-[400px]"
+                            className="  h-[400px]   w-full"
                             dangerouslySetInnerHTML={{ __html: mapEmbed }}
                         />
                     </div>
@@ -38,3 +38,4 @@ export const Map: React.FC<MapProps> = ({ richText, mapEmbed }) => {
         </>
     )
 }
+
