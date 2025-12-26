@@ -29,32 +29,54 @@ export const MediBlock: React.FC<MediBlockProps> = ({ image, richText, Paragraph
         <>
 
 
-            <div className="relative video-wrapper -mt-[110px]">
+            <div className="relative w-full -mt-[110px]">
 
-                {
-                    image && (
+                {/* Background Image */}
+                {image && (
+                    <Image
+                        src={image.url}
+                        alt={image.alt}
+                        width={1920}
+                        height={800}
+                        className="w-full h-[500px] md:h-[600px] object-cover"
+                        priority
+                    />
+                )}
 
-                        <Image
-                            src={image.url}
-                            alt={image.alt}
-                            height={400}
-                            width={800}
-                            className="mx-auto w-[80%]"
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/50" />
+
+                {/* Content Wrapper */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
+
+                    {/* RichText */}
+                    {richText && (
+                        <RichText
+                            className="
+          mb-10
+          [&_h1]:text-3xl md:[&_h1]:text-5xl
+          [&_h1]:font-bold
+          [&_p]:mt-4
+          [&_p]:text-lg md:[&_p]:text-xl
+        "
+                            data={richText}
+                            enableGutter={false}
                         />
-                    )
-                }
-                <div className="absolute inset-0 flex items-center justify-center text-white p-4">
-                    {richText && <RichText className="mb-0" data={richText} enableGutter={false} />}
-                </div>
+                    )}
 
-                <div className="absolute inset-0 flex items-center justify-center text-white p-4 mt-[230px]">
-                    <ul className="list-disc pl-5 space-y-4 text-white" >
+                    {/* Paragraph Points */}
+                    <ul className="list-disc space-y-4 text-lg md:text-xl max-w-3xl text-left">
                         {Paragraph?.map((item, index) => (
-                            <li key={index} style={{ fontSize: '20px' }}>   <b> {item.Point}    </b>  </li>
+                            <li key={index} className="font-semibold">
+                                {item.Point}
+                            </li>
                         ))}
                     </ul>
+
                 </div>
             </div>
+
+
 
         </>
     )

@@ -25,6 +25,8 @@ import { Partner } from '../../blocks/Partner/config'
 import { FAQ } from '../../blocks/FAQ/config'
 import { Head } from '../../blocks/Head/config'
 import { Redirect } from '../../blocks/Redirect/config'
+import { ContactsBlocks } from '../../blocks/ContactBlock/config'
+import { Map } from '../../blocks/Map/config'
 
 
 import {
@@ -86,7 +88,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, FAQ, Down, Partner, Head, Redirect],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, FAQ, Down, Partner, Head, Redirect, ContactsBlocks, Map],
               required: true,
               admin: {
                 initCollapsed: true,

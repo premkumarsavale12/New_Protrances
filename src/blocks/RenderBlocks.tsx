@@ -20,6 +20,8 @@ import { Down } from '@/blocks/Down/Component'
 import { Partner } from '@/blocks/Partner/Component'
 import { Head } from '@/blocks/Head/Component'
 import { Redirect } from '@/blocks/Redirect/Component'
+import { ContactsBlocks } from '@/blocks/ContactBlock/Component'
+import { Map } from '@/blocks/Map/Component'
 
 
 const blockComponents = {
@@ -40,7 +42,9 @@ const blockComponents = {
   down: Down,
   partner: Partner,
   head: Head,
-  redirect: Redirect
+  redirect: Redirect,
+  contactsblocks: ContactsBlocks,
+  map: Map
 }
 
 export const RenderBlocks: React.FC<{
