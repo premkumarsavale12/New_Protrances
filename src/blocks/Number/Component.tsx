@@ -34,22 +34,31 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
     return (
 
         <>
-            <div className="relative max-w-7xl mx-auto  px-4">
-                <h1 className="text-center font-extrabold text-black mb-[30px]"> {Heading}</h1>
+            <div className="relative max-w-7xl mx-auto px-4">
 
+                {/* Heading */}
+                <h1 className="text-center text-3xl md:text-4xl font-extrabold text-black mb-8">
+                    {Heading}
+                </h1>
 
+                {/* Prev Button */}
                 <div
                     ref={prevRef}
-                    className="absolute left-4 z-50 -ml-[100px]  mt-[40px] flex items-center justify-center
-                        w-12 h-12 rounded-full bg-blue-400   text-white  shadow-lg cursor-pointer
-                           hover:scale-110 transition-transform"
+                    className="
+        absolute left-0 top-1/2 -translate-y-1/2 z-50
+        flex items-center justify-center
+        w-12 h-12 rounded-full bg-blue-500 text-white
+        shadow-lg cursor-pointer
+        hover:bg-blue-600 hover:scale-110
+        transition-all duration-300
+      "
                     aria-label="Previous slide"
                 >
                     <svg width="20" height="20" viewBox="0 0 24 24">
                         <path
                             d="M15 18l-6-6 6-6"
                             fill="none"
-                            stroke="black"
+                            stroke="white"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -60,16 +69,21 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                 {/* Next Button */}
                 <div
                     ref={nextRef}
-                    className="absolute right-4 z-50 -mr-[100px]   mt-[40px]  flex items-center justify-center
-                          w-12 h-12 rounded-full bg-blue-400 text-white shadow-lg cursor-pointer
-                    hover:scale-110 transition-transform"
+                    className="
+        absolute right-0 top-1/2 -translate-y-1/2 z-50
+        flex items-center justify-center
+        w-12 h-12 rounded-full bg-blue-500 text-white
+        shadow-lg cursor-pointer
+        hover:bg-blue-600 hover:scale-110
+        transition-all duration-300
+      "
                     aria-label="Next slide"
                 >
                     <svg width="20" height="20" viewBox="0 0 24 24">
                         <path
                             d="M9 6l6 6-6 6"
                             fill="none"
-                            stroke="black"
+                            stroke="white"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -77,27 +91,30 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                     </svg>
                 </div>
 
-
-
                 <Swiper
                     modules={[Navigation, Autoplay]}
                     loop
-                    autoplay={{ delay: 3000, }}
-                    spaceBetween={30}
-                    slidesPerView={4}
+                    autoplay={{ delay: 3000, disableOnInteraction: false }}
+                    spaceBetween={24}
                     navigation={{
                         prevEl: prevRef.current,
                         nextEl: nextRef.current,
                     }}
+                    breakpoints={{
+                        0: { slidesPerView: 1 },
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 4 },
+                    }}
                     className="w-full"
                 >
-
                     {item?.map((items, index) => (
-
                         <SwiperSlide key={index}>
                             <div
-                                key={index}
-                                className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition"
+                                className="
+              bg-white rounded-2xl border border-gray-200
+              p-6 shadow-sm
+              hover:shadow-lg transition-shadow duration-300
+            "
                             >
                                 {/* Top Section */}
                                 <div className="flex items-center gap-3 text-gray-600">
@@ -108,7 +125,9 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                                             className="w-6 h-6 object-contain"
                                         />
                                     )}
-                                    <span className="text-sm font-medium">{items.name}</span>
+                                    <span className="text-sm font-medium">
+                                        {items.name}
+                                    </span>
                                 </div>
 
                                 {/* Number */}
@@ -116,14 +135,11 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                                     {items.number}
                                 </h1>
                             </div>
-
                         </SwiperSlide>
                     ))}
-
-
                 </Swiper>
             </div>
-
         </>
+
     )
 }
