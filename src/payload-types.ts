@@ -219,6 +219,8 @@ export interface Page {
     | Partner
     | Head
     | Redirect
+    | Contactsblocks
+    | Map
   )[];
   meta?: {
     title?: string | null;
@@ -1142,6 +1144,61 @@ export interface Redirect {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contactsblocks".
+ */
+export interface Contactsblocks {
+  heading?: string | null;
+  description?: string | null;
+  phone?: string | null;
+  email?: string | null;
+  address?: string | null;
+  /**
+   * Paste Google Maps embed iframe code
+   */
+  mapEmbed?: string | null;
+  formFields?:
+    | {
+        label?: string | null;
+        type?: ('text' | 'email' | 'textarea' | 'tel') | null;
+        required?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  submitLabel?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contactsblocks';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "map".
+ */
+export interface Map {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Paste Google Maps embed iframe code
+   */
+  mapEmbed?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'map';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect1 {
@@ -1461,6 +1518,8 @@ export interface PagesSelect<T extends boolean = true> {
         partner?: T | PartnerSelect<T>;
         head?: T | HeadSelect<T>;
         redirect?: T | RedirectSelect<T>;
+        contactsblocks?: T | ContactsblocksSelect<T>;
+        map?: T | MapSelect<T>;
       };
   meta?:
     | T
@@ -1790,6 +1849,39 @@ export interface RedirectSelect<T extends boolean = true> {
   richText?: T;
   Paragraph?: T;
   Button?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contactsblocks_select".
+ */
+export interface ContactsblocksSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  phone?: T;
+  email?: T;
+  address?: T;
+  mapEmbed?: T;
+  formFields?:
+    | T
+    | {
+        label?: T;
+        type?: T;
+        required?: T;
+        id?: T;
+      };
+  submitLabel?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "map_select".
+ */
+export interface MapSelect<T extends boolean = true> {
+  richText?: T;
+  mapEmbed?: T;
   id?: T;
   blockName?: T;
 }
