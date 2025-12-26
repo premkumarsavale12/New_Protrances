@@ -45,13 +45,12 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                 <div
                     ref={prevRef}
                     className="
-        absolute left-0 top-1/2 -translate-y-1/2 z-50
-        flex items-center justify-center
-        w-12 h-12 rounded-full bg-blue-500 text-white
-        shadow-lg cursor-pointer
-        hover:bg-blue-600 hover:scale-110
-        transition-all duration-300
-      "
+                                 absolute -left-[50px] top-[150px] -translate-y-1/2 z-50
+                                  flex items-center justify-center
+                                  w-12 h-12 rounded-full bg-blue-500 text-white
+                                  shadow-lg cursor-pointer
+                                   hover:bg-blue-600 hover:scale-110
+                             transition-all duration-300 "
                     aria-label="Previous slide"
                 >
                     <svg width="20" height="20" viewBox="0 0 24 24">
@@ -70,13 +69,12 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                 <div
                     ref={nextRef}
                     className="
-        absolute right-0 top-1/2 -translate-y-1/2 z-50
-        flex items-center justify-center
-        w-12 h-12 rounded-full bg-blue-500 text-white
-        shadow-lg cursor-pointer
-        hover:bg-blue-600 hover:scale-110
-        transition-all duration-300
-      "
+                                    absolute -right-[50px]  top-[150px] -translate-y-1/2 z-50
+                                    flex items-center justify-center
+                                      w-12 h-12 rounded-full bg-blue-500 text-white
+                                       shadow-lg cursor-pointer
+                                     hover:bg-blue-600 hover:scale-110
+                                        transition-all duration-300 "
                     aria-label="Next slide"
                 >
                     <svg width="20" height="20" viewBox="0 0 24 24">

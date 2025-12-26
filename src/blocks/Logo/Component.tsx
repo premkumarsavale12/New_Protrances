@@ -33,14 +33,13 @@ export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
     return (
 
         <>
+<h1 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+  {heading}
+</h1>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
-                {heading}
-            </h1>
-
-            <p className="ml-[600px] text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl">
-                {Paragraph}
-            </p>
+<p className="mx-auto text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl text-center">
+  {Paragraph}
+</p>
 
 
 
