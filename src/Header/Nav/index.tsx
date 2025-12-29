@@ -18,7 +18,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         { label: 'Lose Weight', url: '/loss' },
         { label: 'Relaxation & Stress Reduction', url: '/relaxation' },
         { label: 'Stage Fright & Exam', url: '/fright' },
-        { label: 'Smoking Cessation', url: '/blog' },
+        { label: 'Smoking Cessation', url: '/smoking' },
         { label: 'Self-care', url: '/self' },
       ],
     },
