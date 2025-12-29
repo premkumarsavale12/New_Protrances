@@ -828,6 +828,8 @@ export interface VideoBlock {
         id?: string | null;
       }[]
     | null;
+  button?: string | null;
+  buttonUrl?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'videoBlock';
@@ -1667,6 +1669,8 @@ export interface VideoBlockSelect<T extends boolean = true> {
         Point?: T;
         id?: T;
       };
+  button?: T;
+  buttonUrl?: T;
   id?: T;
   blockName?: T;
 }

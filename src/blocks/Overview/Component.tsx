@@ -75,8 +75,8 @@ export const Overview: React.FC<OverviewProps> = ({ heading, overiews }) => {
                                     <Image
                                         src={item.Image.url}
                                         alt={item.Image.alt}
-                                        height={0}
-                                        width={0}
+                                        height={400}
+                                        width={800}
                                         className="w-full h-full object-cover "
                                     />
                                 </div>

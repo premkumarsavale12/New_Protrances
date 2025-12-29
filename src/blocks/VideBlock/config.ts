@@ -50,6 +50,19 @@ export const VideoBlock: Block = {
                 }
             ]
 
+        },
+
+        {
+            name: "button",
+            type: 'text',
+            label: 'button'
+        },
+
+        {
+            name: 'buttonUrl',
+            type: 'text',
+            label: 'button url'
+
         }
     ]
 }
