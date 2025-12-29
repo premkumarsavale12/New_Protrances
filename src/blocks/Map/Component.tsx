@@ -8,7 +8,7 @@ interface MapProps {
 }
 
 export const Map: React.FC<MapProps> = ({ richText, mapEmbed }) => {
-    console.log(richText, mapEmbed)
+    // console.log(richText, mapEmbed)
     return (
 
         <>
