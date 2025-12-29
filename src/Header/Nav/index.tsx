@@ -30,13 +30,13 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   const itemsToShow = navItems.length > 0 ? navItems : defaultNavItems
 
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  // useEffect(() => {
+  //   const onScroll = () => {
+  //     setScrolled(window.scrollY > 10)
+  //   }
+  //   window.addEventListener('scroll', onScroll)
+  //   return () => window.removeEventListener('scroll', onScroll)
+  // }, [])
 
   return (
     <>
