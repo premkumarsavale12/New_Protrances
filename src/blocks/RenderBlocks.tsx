@@ -22,7 +22,7 @@ import { Head } from '@/blocks/Head/Component'
 import { Redirect } from '@/blocks/Redirect/Component'
 import { ContactsBlocks } from '@/blocks/ContactBlock/Component'
 import { Map } from '@/blocks/Map/Component'
-
+import { Overview } from '@/blocks/Overview/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -44,7 +44,8 @@ const blockComponents = {
   head: Head,
   redirect: Redirect,
   contactsblocks: ContactsBlocks,
-  map: Map
+  map: Map,
+  overview: Overview
 }
 
 export const RenderBlocks: React.FC<{
