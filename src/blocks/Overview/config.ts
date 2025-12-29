@@ -51,6 +51,12 @@ export const Overview: Block = {
                     type: 'text',
                     label: 'Read More',
                     required: true
+                },
+
+                {
+                    name: 'buttonUrl',
+                    type: 'text',
+                    label: 'Button Url'
                 }
             ]
         }

@@ -36,7 +36,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           <nav className="flex items-center justify-between h-16">
             <div className="text-[20px] font-bold text-gray-900">MyBrand</div>
 
-            {/* ================= Desktop Menu ================= */}
+            {/* ======= Desktop Menu ===== */}
             <div className="hidden md:flex gap-8 items-center">
               {itemsToShow.map((item, i) => {
                 if (item.link) {
@@ -54,7 +54,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                   return (
                     <div
                       key={i}
-                      className="relative group cursor-pointer flex items-center gap-1"
+                      className="relative group cursor-pointer flex items-center gap-1  "
                     >
                       <span className="text-[20px] font-extrabold text-gray-700">
                         {item.label}
@@ -76,7 +76,8 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                       </svg>
 
                       {/* Dropdown */}
-                      <div className="absolute top-full left-0 hidden group-hover:flex flex-col bg-white shadow-lg mt-2 rounded min-w-[220px] z-50">
+                      <div className="absolute top-full left-0 hidden group-hover:flex flex-col bg-white shadow-lg rounded min-w-[220px] z-50 pt-2">
+
                         {item.children.map((child, idx) => (
                           <CMSLink
                             key={idx}
@@ -94,7 +95,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
               })}
             </div>
 
-            {/* === Mobile Hamburger ======== */}
+            {/* === Mobile Hamburger ===== */}
 
             <button className="md:hidden" onClick={() => setOpen(!open)}>
               <svg
@@ -121,7 +122,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             </button>
           </nav>
 
-          {/* ================= Mobile Menu ================= */}
+          {/* ==== Mobile Menu ===== */}
           {open && (
             <div className="md:hidden pb-4">
               <div className="flex flex-col mt-4">

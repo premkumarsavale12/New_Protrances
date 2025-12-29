@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { useRef } from "react";
+import Image from "next/image";
 interface NumberProps {
     Heading?: string | null;
 
@@ -117,10 +118,13 @@ export const Number: React.FC<NumberProps> = ({ item, Heading }) => {
                                 {/* Top Section */}
                                 <div className="flex items-center gap-3 text-gray-600">
                                     {items.logo && (
-                                        <img
+                                        <Image
                                             src={items.logo.url}
                                             alt={items.logo.alt}
+                                            height={0}
+                                            width={0}
                                             className="w-6 h-6 object-contain"
+
                                         />
                                     )}
                                     <span className="text-sm font-medium">
