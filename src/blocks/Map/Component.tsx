@@ -1,8 +1,9 @@
 import RichText from "@/components/RichText";
 import React from "react";
+import { type DefaultTypedEditorState } from '@payloadcms/richtext-lexical';
 
 interface MapProps {
-    richText: any;
+    richText: DefaultTypedEditorState;
     mapEmbed?: string;
 
 }

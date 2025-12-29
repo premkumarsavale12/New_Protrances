@@ -1,6 +1,7 @@
 import RichText from "@/components/RichText";
 import { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 import React from "react";
+import Image from "next/image";
 
 interface ReferenceProps {
     richText: DefaultTypedEditorState,
@@ -46,10 +47,13 @@ export const References: React.FC<ReferenceProps> = ({ data, richText }) => {
                         >
                             {/* Image */}
                             {item.Image && (
-                                <img
+                                <Image
                                     src={item.Image.url}
                                     alt={item.Image.alt}
+                                    width={800}
+                                    height={1400}
                                     className="w-full h-64 object-cover"
+
                                 />
                             )}
 

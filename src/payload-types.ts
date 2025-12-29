@@ -1223,6 +1223,7 @@ export interface Overview {
           [k: string]: unknown;
         } | null;
         Button: string;
+        buttonUrl?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1931,6 +1932,7 @@ export interface OverviewSelect<T extends boolean = true> {
         Image?: T;
         richText?: T;
         Button?: T;
+        buttonUrl?: T;
         id?: T;
       };
   id?: T;

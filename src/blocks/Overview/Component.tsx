@@ -2,7 +2,7 @@
 import RichText from "@/components/RichText";
 import React, { useState } from "react";
 import { type DefaultTypedEditorState } from '@payloadcms/richtext-lexical';
-
+import Image from "next/image";
 
 interface OverviewProps {
 
@@ -16,12 +16,13 @@ interface OverviewProps {
         },
         richText: 'DefaultTypedEditorState',
         Button: string;
+        buttonUrl: string;
 
     }[],
 
 }
 
-const extraText = (richText: any) => {
+const extraText = (richText: DefaultTypedEditorState) => {
 
     if (!richText?.root?.children) return "";
 
@@ -40,7 +41,7 @@ export const Overview: React.FC<OverviewProps> = ({ heading, overiews }) => {
     const [search, setSearch] = useState("");
 
     const filteredOverviews = overiews?.filter((item) => {
-        const textContent = extraText(item.richText);
+        const textContent = extraText(item.richText as unknown as DefaultTypedEditorState);
         return textContent.includes(search.toLowerCase());
     }) || [];
 
@@ -71,9 +72,11 @@ export const Overview: React.FC<OverviewProps> = ({ heading, overiews }) => {
 
                             {item.Image && (
                                 <div className="h-[380px] w-full overflow-hidden">
-                                    <img
+                                    <Image
                                         src={item.Image.url}
                                         alt={item.Image.alt}
+                                        height={0}
+                                        width={0}
                                         className="w-full h-full object-cover "
                                     />
                                 </div>
@@ -93,7 +96,9 @@ export const Overview: React.FC<OverviewProps> = ({ heading, overiews }) => {
 
 
                                 {/* Button */}
-                                <button className="inline-flex items-center px-6 py-3 rounded-full bg-gray-100 text-sm font-semibold tracking-wide hover:bg-gray-200 transition">
+
+                                <button onClick={() => window.open(item.buttonUrl, "_blank")} className=" inline-flex items-center px-6 py-3 rounded-full bg-gray-100 text-sm font-semibold tracking-wide transition-all duration-300 ease-in-out
+                                           hover:bg-gray-900 hover:text-white hover:scale-105 hover:shadow-lg">
                                     {item.Button || "READ MORE"}
                                 </button>
                             </div>
@@ -107,4 +112,4 @@ export const Overview: React.FC<OverviewProps> = ({ heading, overiews }) => {
 
     )
 
-}
+} 

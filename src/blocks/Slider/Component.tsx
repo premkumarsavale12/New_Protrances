@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from 'swiper/modules';
-import type { Media } from "@/payload-types";
 import { type DefaultTypedEditorState } from '@payloadcms/richtext-lexical';
 import Image from "next/image";
 

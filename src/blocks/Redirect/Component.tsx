@@ -1,7 +1,8 @@
 import RichText from "@/components/RichText"
+import { type DefaultTypedEditorState } from '@payloadcms/richtext-lexical';
 
 interface RedirectProps {
-    richText: any,
+    richText: DefaultTypedEditorState,
     Paragraph: string,
     Button: string,
 
