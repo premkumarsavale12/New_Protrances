@@ -62,5 +62,3 @@ export const VideoBlock: React.FC<VideoBlockProps> = ({ Video, richText, Paragra
         </>
     )
 }
-
-

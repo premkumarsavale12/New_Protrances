@@ -44,6 +44,7 @@ export const Overview: React.FC<OverviewProps> = ({ heading, overiews }) => {
         const textContent = extraText(item.richText as unknown as DefaultTypedEditorState);
         return textContent.includes(search.toLowerCase());
     }) || [];
+  
 
     return (
 

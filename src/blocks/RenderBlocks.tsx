@@ -23,6 +23,7 @@ import { Redirect } from '@/blocks/Redirect/Component'
 import { ContactsBlocks } from '@/blocks/ContactBlock/Component'
 import { Map } from '@/blocks/Map/Component'
 import { Overview } from '@/blocks/Overview/Component'
+import { Contact_Option } from '@/blocks/Contact_Option/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -45,7 +46,8 @@ const blockComponents = {
   redirect: Redirect,
   contactsblocks: ContactsBlocks,
   map: Map,
-  overview: Overview
+  overview: Overview,
+  contact_option: Contact_Option
 }
 
 export const RenderBlocks: React.FC<{

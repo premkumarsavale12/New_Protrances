@@ -222,6 +222,7 @@ export interface Page {
     | Contactsblocks
     | Map
     | Overview
+    | ContactOption
   )[];
   meta?: {
     title?: string | null;
@@ -1235,6 +1236,53 @@ export interface Overview {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_option".
+ */
+export interface ContactOption {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  contact_option?:
+    | {
+        logo: number | Media;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        button?: string | null;
+        buttonUrl?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contact_option';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect1 {
@@ -1557,6 +1605,7 @@ export interface PagesSelect<T extends boolean = true> {
         contactsblocks?: T | ContactsblocksSelect<T>;
         map?: T | MapSelect<T>;
         overview?: T | OverviewSelect<T>;
+        contact_option?: T | ContactOptionSelect<T>;
       };
   meta?:
     | T
@@ -1936,6 +1985,24 @@ export interface OverviewSelect<T extends boolean = true> {
         Image?: T;
         richText?: T;
         Button?: T;
+        buttonUrl?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_option_select".
+ */
+export interface ContactOptionSelect<T extends boolean = true> {
+  richText?: T;
+  contact_option?:
+    | T
+    | {
+        logo?: T;
+        richText?: T;
+        button?: T;
         buttonUrl?: T;
         id?: T;
       };
