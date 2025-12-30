@@ -28,6 +28,8 @@ import { Redirect } from '../../blocks/Redirect/config'
 import { ContactsBlocks } from '../../blocks/ContactBlock/config'
 import { Map } from '../../blocks/Map/config'
 import { Overview } from '../../blocks/Overview/config'
+import { Contact_Option } from '../../blocks/Contact_Option/config'
+
 
 
 import {
@@ -89,7 +91,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, FAQ, Down, Partner, Head, Redirect, ContactsBlocks, Map, Overview],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, VideoBlock, Right, MediBlock, Conten, Logo, Number, Slider, Reference, FAQ, Down, Partner, Head, Redirect, ContactsBlocks, Map, Overview, Contact_Option],
               required: true,
               admin: {
                 initCollapsed: true,
