@@ -2,7 +2,7 @@
 
 "use client"
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -29,11 +29,9 @@ interface ContenProps {
 
 export const Conten: React.FC<ContenProps> = ({ cards }) => {
 
-    // console.log(cards);
 
-    const prevRef = useRef<HTMLDivElement | null>(null);
-    const nextRef = useRef<HTMLDivElement | null>(null);
-
+    const [prevEl, setPrevEl] = useState<HTMLDivElement | null>(null);
+    const [nextEl, setNextEl] = useState<HTMLDivElement | null>(null);
     return (
         <section className="py-16 px-4 md:px-8 bg-gray-50">
 
@@ -41,7 +39,7 @@ export const Conten: React.FC<ContenProps> = ({ cards }) => {
 
                 {/* Previous Button */}
                 <div
-                    ref={prevRef}
+                    ref={(node) => setPrevEl(node)}
                     className="absolute -ml-[80px] z-50 flex items-center justify-center
                         w-12 h-12 rounded-full bg-white shadow-lg cursor-pointer
                            hover:scale-110 transition-transform"
@@ -61,7 +59,7 @@ export const Conten: React.FC<ContenProps> = ({ cards }) => {
 
                 {/* Next Button */}
                 <div
-                    ref={nextRef}
+                    ref={(node) => setNextEl(node)}
                     className="absolute right-4 z-50 -mr-[90px] flex items-center justify-center
                           w-12 h-12 rounded-full bg-white shadow-lg cursor-pointer
                     hover:scale-110 transition-transform"
@@ -85,7 +83,10 @@ export const Conten: React.FC<ContenProps> = ({ cards }) => {
                     autoplay={{ delay: 3000 }}
                     spaceBetween={30}
                     slidesPerView={3}
-
+                    navigation={{
+                        prevEl,
+                        nextEl,
+                    }}
                 >
                     {
 
