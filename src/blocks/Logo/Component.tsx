@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
-import { useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 
@@ -26,20 +26,20 @@ interface LogoProps {
 
 
 export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
-    const prevRef = useRef<HTMLDivElement | null>(null);
-    const nextRef = useRef<HTMLDivElement | null>(null);
+    const [prevEl, setPrevEl] = useState<HTMLDivElement | null>(null);
+    const [nextEl, setNextEl] = useState<HTMLDivElement | null>(null);
 
 
     return (
 
         <>
-<h1 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
-  {heading}
-</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+                {heading}
+            </h1>
 
-<p className="mx-auto text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl text-center">
-  {Paragraph}
-</p>
+            <p className="mx-auto text-base md:text-lg text-gray-600 leading-relaxed max-w-4xl text-center">
+                {Paragraph}
+            </p>
 
 
 
@@ -47,7 +47,7 @@ export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
 
                 {/* Previous Button */}
                 <div
-                    ref={prevRef}
+                    ref={(node) => setPrevEl(node)}
                     className="absolute left-4 z-50 -ml-[100px]  flex items-center justify-center
                         w-12 h-12 rounded-full bg-blue-400   text-white  shadow-lg cursor-pointer
                            hover:scale-110 transition-transform"
@@ -57,7 +57,7 @@ export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
                         <path
                             d="M15 18l-6-6 6-6"
                             fill="none"
-                            stroke="black"
+                            stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -67,7 +67,7 @@ export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
 
                 {/* Next Button */}
                 <div
-                    ref={nextRef}
+                    ref={(node) => setNextEl(node)}
                     className="absolute right-4 z-50 -mr-[100px]  flex items-center justify-center
                           w-12 h-12 rounded-full bg-blue-400 text-white shadow-lg cursor-pointer
                     hover:scale-110 transition-transform"
@@ -77,7 +77,7 @@ export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
                         <path
                             d="M9 6l6 6-6 6"
                             fill="none"
-                            stroke="black"
+                            stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -98,8 +98,8 @@ export const Logo: React.FC<LogoProps> = ({ heading, Logo, Paragraph }) => {
                     //     swiper.params.navigation.nextEl = nextRef.current;
                     // }}
                     navigation={{
-                        prevEl: prevRef.current,
-                        nextEl: nextRef.current,
+                        prevEl,
+                        nextEl,
                     }}
                     className="w-full"
                 >
